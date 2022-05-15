@@ -1,4 +1,5 @@
 import dash
+import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from dash import dcc
 from dash import html
@@ -8,9 +9,10 @@ import os
 import sqlite3
 
 
+external_stylesheets = [dbc.themes.MORPH]
 connection = sqlite3.connect("introvention.db")
 server = flask.Flask('app')
-app = dash.Dash('app', server=server)
+app = dash.Dash('app', server=server, external_stylesheets=external_stylesheets)
 app.scripts.config.serve_locally = False
 dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-basic-latest.min.js'
 
