@@ -13,6 +13,8 @@ __extension__ \
 #include "edge-impulse-sdk/porting/ei_classifier_porting.h"
 #include "edge-impulse-sdk/dsp/kissfft/kiss_fftr.h"
 #include <Arduino_LSM6DS3.h>
+#include <WiFiNINA.h>
+#include "secrets.h"
 
 
 // Callback function declaration
@@ -20,6 +22,11 @@ static int get_signal_data(size_t offset, size_t length, float *out_ptr);
 
 // Raw features used in inferences.
 float features[375] = {};
+
+WiFiClient client;
+
+const char* host = "192.168.1.139";
+const char* url = "/anomaly?";
 
 int inference(void) {
     
@@ -57,7 +64,17 @@ int inference(void) {
 
     // Report anomalies to web API.
     if (result.anomaly > 1) {
+      if (!client.connect(host, 5000)) {
+        Serial.println("Connection failed.");
+      }
+      
+      client.print(String("GET ") + url + "count=1 HTTP/1.1\r\n" +
+      "Host: " + host + "\r\n" +
+      "Connection: close\r\n\r\n");
 
+       while(client.available()) {}
+  
+       client.stop();
     }
 
     return 0;
@@ -79,7 +96,14 @@ void setup() {
     Serial.println("Failed to initialize IMU!");
     while (1);
   }
+
+   WiFi.begin(SSID, PASSWORD);
   
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
 }
 
 void loop() {
