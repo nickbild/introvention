@@ -19,7 +19,7 @@ An Arduino Nano 33 IoT microcontroller development board, with an onboard accele
 - 1 x Arduino Nano 33 IoT
 - 1 x 3.7V to 5.0V power boost converter
 - 1 x 350 mAh LiPo battery
-- 3D printed case
+- 3D printed case ([design file](https://github.com/nickbild/introvention/blob/main/media/introvention_case.stl))
 
 ## Disclaimer
 
