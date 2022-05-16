@@ -22,7 +22,7 @@ An Arduino Nano 33 IoT microcontroller development board, with an onboard accele
 
 ![](https://raw.githubusercontent.com/nickbild/introvention/main/media/lid_on_sm.jpg)
 
-![](https://raw.githubusercontent.com/nickbild/introvention/main/media/dashboard_sm.jpg)
+![](https://raw.githubusercontent.com/nickbild/introvention/main/media/dashboard_sm.png)
 
 ## Bill of Materials
 
