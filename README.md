@@ -1,8 +1,8 @@
 # Introvention
 
-Coming soon!
-
 Introvention is a wearable device that seeks to diagnose movement disorders earlier than is presently possible by leveraging machine learning.
+
+![](https://raw.githubusercontent.com/nickbild/introvention/main/media/wearing_sm.jpg)
 
 ## How It Works
 
@@ -15,6 +15,12 @@ This is the idea behind Introvention, which is a prototype wearable device that 
 An Arduino Nano 33 IoT microcontroller development board, with an onboard accelerometer is placed in a 3D printed case along with a rechargable LiPo battery.  The case is worn on the back of the hand.  Introvention continually samples movement data from the accelerometer and feeds it into a K-means clustering algorithm that has been trained to recognize the patterns of normal muscular movements that occur during typical, daily activities.  When anomalous muscular activity is detected, it is transmitted via WiFi to a [web API](https://github.com/nickbild/introvention/blob/main/api.py) that records it in a database.  A [web dashboard](https://github.com/nickbild/introvention/blob/main/dashboard.py) can present this data to a clinician graphically so that they can observe daily trends related to abnormal muscular movements.  The Arduino sketch is [available here](https://github.com/nickbild/introvention/tree/main/introvention_arduino).
 
 ## Media
+
+![](https://raw.githubusercontent.com/nickbild/introvention/main/media/components_sm.jpg)
+
+![](https://raw.githubusercontent.com/nickbild/introvention/main/media/open_box_sm.jpg)
+
+![](https://raw.githubusercontent.com/nickbild/introvention/main/media/lid_on_sm.jpg)
 
 ## Bill of Materials
 
